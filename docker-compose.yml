@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  nodejs_oracledb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      #network: host
+    image: nodejs_oracledb
+    container_name: nodejs_oracledb_production
+    restart: unless-stopped
+    ports:
+      - "3200:3000"
+    environment:
+      - NODE_ENV=production
